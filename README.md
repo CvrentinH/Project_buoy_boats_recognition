@@ -17,6 +17,10 @@ L'architecture est optimisée pour un déploiement faible consommation, sans GPU
 
 ---
 
+![Image reconnaissance](recognition.PNG)
+
+---
+
 ## Performance & Résultats
 
 Le modèle a été entraîné sur 50 epochs (par manque de puissance de calcul) avec un Dataset spécifique "Buoys & Boats" (via Roboflow).
