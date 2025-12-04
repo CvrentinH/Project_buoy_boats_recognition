@@ -15,8 +15,6 @@ L'architecture est optimisée pour un déploiement faible consommation, sans GPU
 3.  **Conteneurisation** : Image Docker optimisée pour CPU (< 1GB) séparant l'environnement de build et de run.
 4.  **Reproductibilité** : Automatisation complète via `Makefile` et gestion sécurisée des secrets.
 
----
-
 ![Image reconnaissance](recognition.PNG)
 
 ---
