@@ -2,14 +2,14 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
 ![YOLOv8](https://img.shields.io/badge/YOLO-v8-FF0000?style=for-the-badge&logo=ultralytics&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-Edge_Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-24.0-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-Core-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 
 ## Résumé
 Ce projet est un module de perception autonome conçu pour détecter des obstacles maritimes (bouées et bateaux) en temps réel.
 
-L'architecture est optimisée pour un déploiement "Edge" (faible consommation, sans GPU) :
+L'architecture est optimisée pour un déploiement faible consommation, sans GPU :
 1.  **Computer Vision** : Utilisation de YOLOv8 Nano fine-tuné sur un dataset maritime spécifique.
 2.  **Inférence Optimisée** : Pipeline vidéo via OpenCV avec gestion de mémoire par générateurs (`stream=True`) pour une stabilité sur longue durée.
 3.  **Conteneurisation** : Image Docker optimisée pour CPU (< 1GB) séparant l'environnement de build et de run.
@@ -20,6 +20,7 @@ L'architecture est optimisée pour un déploiement "Edge" (faible consommation, 
 ## Performance & Résultats
 
 Le modèle a été entraîné sur 50 epochs (par manque de puissance de calcul) avec un Dataset spécifique "Buoys & Boats" (via Roboflow).
+[fichiers](https://universe.roboflow.com/clearwater/buoys-and-boats)
 
 ### 1. Métriques d'Entraînement
 Le modèle atteint une précision (mAP) satisfaisante pour un modèle Nano, garantissant une inférence rapide (>30 FPS sur CPU standard).
@@ -49,7 +50,7 @@ Le projet suit une séparation stricte entre la **R&D (Entraînement)** et la **
 
 ---
 
-## 🚀 Comment lancer le projet
+## Comment lancer le projet
 
 ### Prérequis
 
