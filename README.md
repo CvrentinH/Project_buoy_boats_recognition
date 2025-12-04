@@ -74,7 +74,7 @@ make run
 Simule le déploiement sur le drone. L'image est construite et lancée avec accès au périphérique vidéo et forward X11.
 
 ```bash
-# Pipeline complet : Build l'image + Lance le conteneur GUI
+# Build image + Lance le conteneur GUI
 make deploy
 ```
 
@@ -87,6 +87,6 @@ Créez un fichier .env à la racine : API_KEY=votre_clé.
 Lancez le script d'entraînement :
 
 ```bash
-# Pipeline complet : Build l'image + Lance le conteneur GUI
+# Build l'image + Lance le conteneur GUI
 python src/train.py
 ```
