@@ -1,6 +1,6 @@
 # ⚓ Maritime Obstacle Detection (USV Perception)
 
-![Python](https://img.shields.io/badge/Python-3.9-blue?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
 ![YOLOv8](https://img.shields.io/badge/YOLO-v8-FF0000?style=for-the-badge&logo=ultralytics&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Edge_Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
@@ -25,13 +25,13 @@ Le modèle a été entraîné sur 50 époques avec un Dataset spécifique "Buoys
 ### 1. Métriques d'Entraînement
 Le modèle atteint une précision (mAP) satisfaisante pour un modèle Nano, garantissant une inférence rapide (>30 FPS sur CPU standard).
 
-![Résultats de l'entraînement](assets/results.png)
+![Résultats de l'entraînement](results.png)
 *(Courbes de perte et de précision durant l'entraînement)*
 
 ### 2. Matrice de Confusion
 Capacité du modèle à distinguer les classes (Bouées vs Bateaux) et à ignorer le fond (Background).
 
-![Matrice de Confusion](assets/confusion_matrix.png)
+![Matrice de Confusion](confusion_matrix.png)
 
 ---
 
@@ -85,7 +85,7 @@ Si vous souhaitez reproduire l'entraînement (nécessite une clé API Roboflow) 
     Créez un fichier .env à la racine : ROBOFLOW_API_KEY=votre_clé.
 
     Lancez le script d'entraînement :
-    
+
 ```bash
 # Pipeline complet : Build l'image + Lance le conteneur GUI
 python src/train.py
