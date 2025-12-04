@@ -13,7 +13,7 @@ L'architecture est optimisée pour un déploiement faible consommation, sans GPU
 1.  **Computer Vision** : Utilisation de YOLOv8 Nano fine-tuné sur un dataset maritime spécifique.
 2.  **Inférence Optimisée** : Pipeline vidéo via OpenCV avec gestion de mémoire par générateurs (`stream=True`) pour une stabilité sur longue durée.
 3.  **Conteneurisation** : Image Docker optimisée pour CPU (< 1GB) séparant l'environnement de build et de run.
-4.  **Reproductibilité** : Automatisation complète via `Makefile` et gestion sécurisée des secrets.
+4.  **Reproductibilité** : Automatisation complète via `Makefile` et gestion API.
 
 ![Image reconnaissance](recognition.PNG)
 
@@ -60,8 +60,7 @@ Le projet suit une séparation stricte entre la **R&D (Entraînement)** et la **
 * Python 3.11+
 * Webcam (Pour la démo temps réel)
 
-### Option 1 : Inférence Rapide (Local)
-Pour tester la détection sur votre webcam immédiatement sans passer par Docker.
+### Inférence Rapide (Local)
 
 ```bash
 # 1. Installer les dépendances
@@ -71,16 +70,14 @@ make install
 make run
 ```
 
-### Option 2 : Déploiement Conteneurisé
-
-Simule le déploiement sur le drone. L'image est construite et lancée avec accès au périphérique vidéo et forward X11.
+### Déploiement Conteneurisé
 
 ```bash
 # Build image + Lance le conteneur GUI
 make deploy
 ```
 
-### Option 3 : Ré-entraîner le modèle (R&D)
+### Ré-entraîner le modèle (R&D)
 
 Si vous souhaitez reproduire l'entraînement (nécessite une clé API) :
 
