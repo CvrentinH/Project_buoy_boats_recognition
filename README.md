@@ -12,7 +12,7 @@ Ce projet est un module de perception autonome conçu pour détecter des obstacl
 L'architecture est optimisée pour un déploiement faible consommation, sans GPU :
 1.  **Computer Vision** : Utilisation de YOLOv8 Nano fine-tuné sur un dataset maritime spécifique.
 2.  **Inférence Optimisée** : Pipeline vidéo via OpenCV avec gestion de mémoire par générateurs (`stream=True`) pour une stabilité sur longue durée.
-3.  **Conteneurisation** : Image Docker optimisée pour CPU (< 1GB) séparant l'environnement de build et de run.
+3.  **Conteneurisation** : Image Docker optimisée pour CPU (< 3GB) séparant l'environnement de build et de run.
 4.  **Reproductibilité** : Automatisation complète via `Makefile` et gestion API.
 
 ![Image reconnaissance](recognition.PNG)
@@ -47,7 +47,7 @@ Le projet suit une séparation stricte entre la **R&D (Entraînement)** et la **
 | **Inférence** | `OpenCV` + `YOLO` | **Totalement Offline**. N'utilise que le CPU. Ne dépend pas d'internet. |
 
 ### Optimisation Embarquée (Challenges résolus)
-* **Réduction de l'image Docker :** Passage de 16Go (Standard) à **~1Go** en forçant l'installation de `torch-cpu`, `opencv-headless` et en excluant les caches de build.
+* **Réduction de l'image Docker :** Passage de 16Go (Standard) à **~3Go** en forçant l'installation de `torch-cpu`, `opencv-headless` et en excluant les caches de build.
 * **Stabilité RAM :** Utilisation de générateurs Python pour le traitement vidéo, évitant la saturation mémoire sur les flux continus.
 
 ---
