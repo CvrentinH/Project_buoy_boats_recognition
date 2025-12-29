@@ -4,8 +4,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).parents[1]
 MODEL_PATH = BASE_DIR / "models" / "best.pt"
-IMG_PATH = BASE_DIR / "assets" / "buoy_boat.jpg"
-CONFIDENCE_THRESHOLD = 0.7
+IMG_PATH = BASE_DIR / "assets" / "buoy.jpeg"
+CONFIDENCE_THRESHOLD = 0.75
 
 
 def run_inference(source=None):
@@ -31,7 +31,7 @@ def run_inference(source=None):
 
 if __name__ == "__main__":
     # Test Webcam 
-    #run_inference() 
+    run_inference() 
 
     # Test Image
-    run_inference(IMG_PATH)
+    #run_inference(IMG_PATH)

@@ -13,7 +13,7 @@ def main():
     RUNS_DIR = BASE_DIR / "runs" / "detect"
 
     if not torch.cuda.is_available():
-        print("Entraînement sur CPU (Lent)")
+        print("Training on CPU (slow)")
 
     DATASET_DIR.mkdir(parents=True, exist_ok=True)
     api_key = os.getenv("API_KEY")
@@ -32,14 +32,14 @@ def main():
         dataset = version.download("yolov8")
     
     except Exception as e:
-        print(f"Erreur Roboflow {e}")
+        print(f"Error Roboflow {e}")
         os.chdir(original_cwd)
         exit()
     
     os.chdir(original_cwd)
     data_yaml_path = Path(dataset.location) / "data.yaml"
 
-    print(f"Entrainement {data_yaml_path}")
+    print(f"Training {data_yaml_path}")
 
     model = YOLO('yolov8n.pt')
 
