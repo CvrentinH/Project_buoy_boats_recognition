@@ -6,86 +6,86 @@
 ![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 
-## Résumé
-Ce projet est un module de perception autonome conçu pour détecter des obstacles maritimes (bouées et bateaux) en temps réel.
+## Overview
+This project is an autonomous perception module designed to detect maritime obstacles (buoys and boats) in real-time.
 
-L'architecture est optimisée pour un déploiement faible consommation, sans GPU :
-1.  **Computer Vision** : Utilisation de YOLOv8 Nano fine-tuné sur un dataset maritime spécifique.
-2.  **Inférence Optimisée** : Pipeline vidéo via OpenCV avec gestion de mémoire par générateurs (`stream=True`) pour une stabilité sur longue durée.
-3.  **Conteneurisation** : Image Docker optimisée pour CPU (< 1GB) séparant l'environnement de build et de run.
-4.  **Reproductibilité** : Automatisation complète via `Makefile` et gestion API.
+The architecture is optimized for low-power deployment without a GPU:
+1.  **Computer Vision** : Uses YOLOv8 Nano fine-tuned on a specific maritime dataset.
+2.  **Inférence Optimisée** : Video pipeline via OpenCV with memory management using generators `(stream=True)` for long-term stability.
+3.  **Conteneurisation** : Docker image optimized for CPU (< 1GB), separating the build and run environments.
+4.  **Reproductibilité** : Full automation via `Makefile` and `API management`.
 
 ![Image reconnaissance](recognition.PNG)
 
 ---
 
-## Performance & Résultats
+## Performance & Results
 
-Le modèle a été entraîné sur 50 epochs (par manque de puissance de calcul) avec un Dataset spécifique "Buoys & Boats" (via Roboflow).
+The model was trained for 50 epochs (due to limited computing resources) using a specific "Buoys & Boats" Dataset (via Roboflow).
 [fichiers](https://universe.roboflow.com/clearwater/buoys-and-boats)
 
-### 1. Métriques d'Entraînement
-Le modèle atteint une précision (mAP) satisfaisante pour un modèle Nano, garantissant une inférence rapide (>30 FPS sur CPU standard).
+### 1. Training Metrics
+The model achieves satisfactory accuracy (mAP) for a Nano model, guaranteeing fast inference (>30 FPS on standard CPUs).
 
 ![Résultats de l'entraînement](results.png)
 *(Courbes de perte et de précision durant l'entraînement)*
 
-### 2. Matrice de Confusion
-Capacité du modèle à distinguer les classes (Bouées vs Bateaux) et à ignorer le fond (Background).
+### 2. Confusion Matrix
+The model's ability to distinguish classes (Buoys vs. Boats) and ignore the background.
 
 ![Matrice de Confusion](confusion_matrix.png)
 
 ---
 
-## Architecture Technique
+## Technical Architecture
 
-Le projet suit une séparation stricte entre la **R&D (Entraînement)** et la **Production (Inférence)**.
+The project follows a strict separation between R&D (Training) and Production (Inference).
 
 | Module | Techno | Description |
 | :--- | :--- | :--- |
-| **Training** | `PyTorch` + `CUDA` | Entraînement sur GPU/Cloud. Nécessite une clé API. Génère le fichier `best.pt`. |
-| **Inférence** | `OpenCV` + `YOLO` | **Totalement Offline**. N'utilise que le CPU. Ne dépend pas d'internet. |
+| **Training** | `PyTorch` + `CUDA` | GPU/Cloud training. Requires an API key. Generates the `best.pt` file. |
+| **Inférence** | `OpenCV` + `YOLO` | **Completely Offline**. Uses CPU only. No internet dependency.|
 
-### Optimisation Embarquée (Challenges résolus)
-* **Réduction de l'image Docker :** Passage de 16Go (Standard) à **~1Go** en forçant l'installation de `torch-cpu`, `opencv-headless` et en excluant les caches de build.
-* **Stabilité RAM :** Utilisation de générateurs Python pour le traitement vidéo, évitant la saturation mémoire sur les flux continus.
+### Embedded Optimization (Solved Challenges)
+* **Docker Image Reduction:** Reduced from 16GB (Standard) to ~3GB by forcing the installation of`torch-cpu`, `opencv-headless` and excluding build caches.
+* **RAM Stability:** Use of Python generators for video processing, avoiding memory saturation on continuous streams.
 
 ---
 
-## Comment lancer le projet
+## How to Run the Project
 
-### Prérequis
+### Prerequisites
 
 * Docker
 * Python 3.11+
-* Webcam (Pour la démo temps réel)
+* Webcam (For real-time demo)
 
-### Inférence Rapide (Local)
+### Fast Inference (Local)
 
 ```bash
-# 1. Installer les dépendances
+# 1. Install dependencies
 make install
 
-# 2. Lancer la détection (Webcam par défaut)
+# 2. Run detection (Default: Webcam)
 make run
 ```
 
-### Déploiement Conteneurisé
+### Containerized Deployment
 
 ```bash
-# Build image + Lance le conteneur GUI
+# Build image + Run GUI container
 make deploy
 ```
 
-### Ré-entraîner le modèle (R&D)
+### Retrain the Model (R&D)
 
-Si vous souhaitez reproduire l'entraînement (nécessite une clé API) :
+If you wish to reproduce the training (requires an API key):
 
-Créez un fichier .env à la racine : API_KEY=votre_clé.
+Create a file .env at the root : API_KEY=your_key.
 
-Lancez le script d'entraînement :
+Run the training script :
 
 ```bash
-# Build l'image + Lance le conteneur GUI
+# Build the image + Run the GUI container
 python src/train.py
 ```
