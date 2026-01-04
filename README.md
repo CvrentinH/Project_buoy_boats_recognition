@@ -63,10 +63,9 @@ The project follows a strict separation between R&D (Training) and Production (I
 ### Fast Inference (Local)
 
 ```bash
-# 1. Install dependencies
 make install
 
-# 2. Run detection (Default: Webcam)
+# Run detection (Default: Webcam)
 make run
 ```
 
