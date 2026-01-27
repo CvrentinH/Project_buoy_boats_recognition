@@ -57,8 +57,9 @@ The project follows a strict separation between R&D (Training) and Production (I
 ### Prerequisites
 
 * Docker
-* Python 3.11+
+* Python
 * Webcam (For real-time demo)
+* (Make)
 
 ### Fast Inference (Local)
 
