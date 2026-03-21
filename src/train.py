@@ -8,7 +8,7 @@ from roboflow import Roboflow
 load_dotenv()
 
 def main():
-    BASE_DIR = Path(__file__).parent[1]
+    BASE_DIR = Path(__file__).parents[1]
     DATASET_DIR = BASE_DIR / "datasets"
     RUNS_DIR = BASE_DIR / "runs" / "detect"
 
@@ -19,7 +19,7 @@ def main():
     api_key = os.getenv("API_KEY")
 
     if not api_key:
-        print("Clé api invalide")
+        print("Error API KEY")
         exit()    
 
     original_cwd = Path.cwd()
