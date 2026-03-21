@@ -1,8 +1,8 @@
 # Maritime Obstacle Detection : buoy and boats
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=python&logoColor=white)
 ![YOLOv8](https://img.shields.io/badge/YOLO-v8-FF0000?style=for-the-badge&logo=ultralytics&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-24.0-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 
@@ -57,16 +57,16 @@ The project follows a strict separation between R&D (Training) and Production (I
 ### Prerequisites
 
 * Docker
-* Python 3.11+
+* Python
 * Webcam (For real-time demo)
+* (Make)
 
 ### Fast Inference (Local)
 
 ```bash
-# 1. Install dependencies
 make install
 
-# 2. Run detection (Default: Webcam)
+# Run detection (Default: Webcam)
 make run
 ```
 
