@@ -11,9 +11,9 @@ This project is an autonomous perception module designed to detect maritime obst
 
 The architecture is optimized for low-power deployment without a GPU:
 1.  **Computer Vision** : Uses YOLOv8 Nano fine-tuned on a specific maritime dataset.
-2.  **Inférence Optimisée** : Video pipeline via OpenCV with memory management using generators `(stream=True)` for long-term stability.
-3.  **Conteneurisation** : Docker image optimized for CPU (< 1GB), separating the build and run environments.
-4.  **Reproductibilité** : Full automation via `Makefile` and `API management`.
+2.  **Optimized inference** : Video pipeline via OpenCV with memory management using generators `(stream=True)` for long-term stability.
+3.  **Dockerisation** : Docker image optimized for CPU (< 1GB), separating the build and run environments.
+4.  **Reproducibility** : Full automation via `Makefile` and `API management`.
 
 ![Image reconnaissance](recognition.PNG)
 
