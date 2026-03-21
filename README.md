@@ -22,18 +22,18 @@ The architecture is optimized for low-power deployment without a GPU:
 ## Performance & Results
 
 The model was trained for 50 epochs (due to limited computing resources) using a specific "Buoys & Boats" Dataset (via Roboflow).
-[fichiers](https://universe.roboflow.com/clearwater/buoys-and-boats)
+[files](https://universe.roboflow.com/clearwater/buoys-and-boats)
 
 ### 1. Training Metrics
 The model achieves satisfactory accuracy (mAP) for a Nano model, guaranteeing fast inference (>30 FPS on standard CPUs).
 
-![Résultats de l'entraînement](results.png)
+![Training results](results.png)
 *(Courbes de perte et de précision durant l'entraînement)*
 
 ### 2. Confusion Matrix
 The model's ability to distinguish classes (Buoys vs. Boats) and ignore the background.
 
-![Matrice de Confusion](confusion_matrix.png)
+![Confusion Matrix](confusion_matrix.png)
 
 ---
 
